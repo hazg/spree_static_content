@@ -1,4 +1,5 @@
-SpreeStaticContent::Engine.routes do
+# FIXME: Correct way for rails engine routes?
+Spree::Core::Engine.routes.draw do
 
   namespace :admin do
     resources :pages
