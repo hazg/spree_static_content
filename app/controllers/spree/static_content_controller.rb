@@ -1,10 +1,9 @@
 module Spree
   class StaticContentController < Spree::BaseController
-    #caches_action :show
+    caches_action :show
     
     def show
-      path = params[:path]
-      case params[:path]
+      path = case params[:path]
       when Array
         '/' + params[:path].join("/")
       when String
@@ -12,8 +11,6 @@ module Spree
       when nil
         request.path
       end
-      #path = path.gsub(/^\/*/, '')
-      l = Rails.logger.debug("**********************#{path}")
       unless @page = Page.visible.find_by_slug(path)
         render_404
       end
