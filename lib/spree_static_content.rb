@@ -3,6 +3,7 @@ require 'formtastic'
 
 module SpreeStaticContent
   class Engine < Rails::Engine
+    isolate_namespace Spree
     engine_name 'spree_static_content'
 
     def self.activate
